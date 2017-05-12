@@ -10,7 +10,7 @@ class SprintsController < ApplicationController
 
   # GET /sprints/1
   def show
-    render json: @sprint
+    render json: @sprint, :include => [:goals]
   end
 
   # POST /sprints
