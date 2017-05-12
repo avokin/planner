@@ -5,12 +5,12 @@ class SprintsControllerTest < ActionDispatch::IntegrationTest
     @sprint = sprints(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get sprints_url, as: :json
     assert_response :success
   end
 
-  test "should create sprint" do
+  test 'should create sprint' do
     assert_difference('Sprint.count') do
       post sprints_url, params: { sprint: { from: @sprint.from, to: @sprint.to } }, as: :json
     end
@@ -18,17 +18,17 @@ class SprintsControllerTest < ActionDispatch::IntegrationTest
     assert_response 201
   end
 
-  test "should show sprint" do
+  test 'should show sprint' do
     get sprint_url(@sprint), as: :json
     assert_response :success
   end
 
-  test "should update sprint" do
+  test 'should update sprint' do
     patch sprint_url(@sprint), params: { sprint: { from: @sprint.from, to: @sprint.to } }, as: :json
     assert_response 200
   end
 
-  test "should destroy sprint" do
+  test 'should destroy sprint' do
     assert_difference('Sprint.count', -1) do
       delete sprint_url(@sprint), as: :json
     end
