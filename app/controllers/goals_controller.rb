@@ -15,6 +15,7 @@ class GoalsController < ApplicationController
   # POST /sprints/:sprint_id/goals
   def create
     @goal = Goal.new(goal_params)
+    @goal.sprint_id = params[:sprint_id]
 
     if @goal.save
       render json: @goal, status: :created, only: [:id, :name]
