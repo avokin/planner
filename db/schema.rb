@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512183858) do
+ActiveRecord::Schema.define(version: 20170514185504) do
+
+  create_table "days", force: :cascade do |t|
+    t.integer "number"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "goals", force: :cascade do |t|
     t.string "name"
@@ -26,6 +33,15 @@ ActiveRecord::Schema.define(version: 20170512183858) do
     t.integer "to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.boolean "finished"
+    t.integer "day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day_id"], name: "index_tasks_on_day_id"
   end
 
 end
