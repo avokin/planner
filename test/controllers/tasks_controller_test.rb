@@ -4,6 +4,7 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @day = days(:one)
     @task = tasks(:one)
+    @task.day = @day
   end
 
   test "should get index" do

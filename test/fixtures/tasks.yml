@@ -3,9 +3,7 @@
 one:
   name: MyString
   finished: false
-  day: one
 
 two:
   name: MyString
   finished: false
-  day: two

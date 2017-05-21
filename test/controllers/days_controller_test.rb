@@ -12,7 +12,7 @@ class DaysControllerTest < ActionDispatch::IntegrationTest
 
   test "should create day" do
     assert_difference('Day.count') do
-      post days_url, params: { day: { notes: @day.notes, number: @day.number } }, as: :json
+      post days_url, params: { day: { notes: @day.notes, id: @day.id } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class DaysControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update day" do
-    patch day_url(@day), params: { day: { notes: @day.notes, number: @day.number } }, as: :json
+    patch day_url(@day), params: { day: { notes: @day.notes, id: @day.id } }, as: :json
     assert_response 200
   end
 
