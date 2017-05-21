@@ -15,6 +15,6 @@ Goal.create(name: 'three', finished: false, sprint_id: 2)
 Goal.create(name: 'four', finished: false, sprint_id: 2)
 
 
-Day.create(number: 20170512, notes: '')
-Task.create(name: 'one', finished: false, day_id: 1)
-Task.create(name: 'two', finished: false, day_id: 2)
+Day.create(id: 20170522, notes: '')
+Task.create(name: 'one', finished: false, day_id: 20170522)
+Task.create(name: 'two', finished: false, day_id: 20170522)
