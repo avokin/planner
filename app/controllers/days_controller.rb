@@ -41,7 +41,11 @@ class DaysController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_day
-      @day = Day.find(params[:id])
+      @day = Day.find_by_id(params[:id])
+      if @day.nil?
+        @day = Day.new(:id => params[:id])
+        @day.save!
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
