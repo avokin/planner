@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
   # PATCH/PUT /days/:day_id/asks/1
   def update
-    if @task.update(task_params)
+    if @task.update_and_create_day_if_needed(task_params)
       render json: @task
     else
       render json: @task.errors, status: :unprocessable_entity

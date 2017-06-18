@@ -3,7 +3,9 @@
 one:
   name: MyString
   finished: false
+  day_id: 1
 
 two:
   name: MyString
   finished: false
+  day_id: 1
