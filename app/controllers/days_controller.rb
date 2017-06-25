@@ -10,7 +10,11 @@ class DaysController < ApplicationController
 
   # GET /days/1
   def show
-    render json: @day, :include => [:tasks]
+    sprint = Sprint.where(["`from` <= :day_id and :day_id <= `to`", {:day_id => @day.id}]).first
+    sprint_field = {sprint_id: sprint.id}
+
+    day_data = JSON::parse(@day.to_json(:include => [:tasks])).merge(sprint_field)
+    render json: day_data
   end
 
   # POST /days
