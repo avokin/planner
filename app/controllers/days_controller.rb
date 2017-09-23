@@ -10,7 +10,7 @@ class DaysController < ApplicationController
 
   # GET /days/1
   def show
-    sprint = Sprint.where(["`from` <= :day_id and :day_id <= `to`", {:day_id => @day.id}]).first
+    sprint = Sprint.where(['from" <= :day_id and :day_id <= "to"', {:day_id => @day.id}]).first
     sprint_id = sprint.nil? ? nil : sprint.id
     sprint_field = {sprint_id: sprint_id}
 
