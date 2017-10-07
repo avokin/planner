@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :goals
   end
   resources :days do
-    resources :tasks
+    resources :tasks do
+    end
+    get 'overdue', to: :overdue, controller: 'tasks'
   end
 end

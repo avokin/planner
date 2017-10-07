@@ -25,13 +25,19 @@ class TasksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /days/:day_id/asks/1
+  # PATCH/PUT /days/:day_id/tasks/1
   def update
     if @task.update_and_create_day_if_needed(task_params)
       render json: @task
     else
       render json: @task.errors, status: :unprocessable_entity
     end
+  end
+
+  # GET /days/:day_id/overdue_tasks
+  def overdue
+    day_id = Integer(params[:day_id])
+    render json: Task.where(['"day_id" < :day_id and ("finished" = :finished or "finished" is null)', {:day_id => day_id, :finished => false}])
   end
 
   # DELETE /days/:day_id/tasks/1
